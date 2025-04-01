@@ -26,7 +26,6 @@ public class DatabaseSeeder implements CommandLineRunner {
         if (length == 0 || length == -1) {
             byte[] file = getImage("flow_poster.jpg");
             Blob blob = new SerialBlob(file);
-
             Fact f = new Fact();
             f.setImage(blob);
             f.setDescription("test");
