@@ -1,6 +1,5 @@
 package maciej.develop.random_facts.seeder;
 
-import java.beans.FeatureDescriptor;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
