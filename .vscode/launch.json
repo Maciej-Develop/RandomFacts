@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-RandomFactsApplication<random-facts>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "maciej.develop.random_facts.RandomFactsApplication",
+            "projectName": "random-facts",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
