@@ -28,7 +28,8 @@ public class DatabaseSeeder implements CommandLineRunner {
             Blob blob = new SerialBlob(file);
             Fact f = new Fact();
             f.setImage(blob);
-            f.setDescription("test");
+            f.setDescription(
+                    "Thanks to the popularity of the film \"Flow\", in Brazil, there has been an increase in the adoptions of black cats");
             service.create(f);
         }
     }
