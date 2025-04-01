@@ -2,6 +2,8 @@ package maciej.develop.random_facts.model;
 
 import java.sql.Blob;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,6 +24,7 @@ public class Fact {
     private Long id;
 
     @Lob
+    @JsonIgnore
     private Blob image;
 
     private String description;

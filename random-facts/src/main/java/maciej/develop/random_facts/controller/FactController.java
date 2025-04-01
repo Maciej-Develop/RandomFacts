@@ -17,16 +17,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@CrossOrigin(origins = "*")
 @RequestMapping("/api")
+@CrossOrigin(origins = "*")
 public class FactController {
 
     @Autowired
     private FactService service;
 
-    @GetMapping("/")
-    public Iterable<Fact> all() {
-        return service.getAll();
+    @GetMapping
+    public ResponseEntity<Iterable<Fact>> getAll() {
+        return ResponseEntity.ok().body(service.getAll());
     }
 
     @GetMapping("/img")
