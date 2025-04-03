@@ -24,14 +24,22 @@ public class DatabaseSeeder implements CommandLineRunner {
     public void run(String... args) throws Exception {
         long length = service.getAll().spliterator().getExactSizeIfKnown();
         if (length == 0 || length == -1) {
-            byte[] file = getImage("flow_poster.jpg");
-            Blob blob = new SerialBlob(file);
-            Fact f = new Fact();
-            f.setImage(blob);
-            f.setDescription(
+            createFact("flow_poster.jpg",
                     "Thanks to the popularity of the film \"Flow\", in Brazil, there has been an increase in the adoptions of black cats");
-            service.create(f);
+            createFact("blue_whale.jpg",
+                    "The blue whale is the largest animal that has ever live on Earth. The second one is the argentinosaurus.");
+            createFact("mount_fuji.jpg",
+                    "During World War II, the USA considered painting the snow-covered Mount Fuji black as a psychological attack on Japan.");
         }
+    }
+
+    private void createFact(String img, String desc) throws Exception {
+        byte[] file = getImage(img);
+        Blob blob = new SerialBlob(file);
+        Fact f = new Fact();
+        f.setImage(blob);
+        f.setDescription(desc);
+        service.create(f);
     }
 
     private byte[] getImage(String path) throws IOException {
