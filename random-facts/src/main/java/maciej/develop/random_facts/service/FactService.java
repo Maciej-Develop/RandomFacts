@@ -23,4 +23,8 @@ public class FactService {
     public Fact getById(Long id) {
         return factRepository.findById(id).get();
     }
+
+    public long getSize() {
+        return factRepository.count();
+    }
 }
