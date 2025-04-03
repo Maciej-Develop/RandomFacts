@@ -1,7 +1,8 @@
 package maciej.develop.random_facts.controller;
 
 import java.sql.SQLException;
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,26 +27,23 @@ public class FactController {
     private FactService service;
 
     @GetMapping
-    public ResponseEntity<Iterable<Fact>> getAll() {
+    public ResponseEntity<List<Fact>> getAll() {
         return ResponseEntity.ok().body(service.getAll());
     }
 
     @GetMapping("/fact")
     public ResponseEntity<Fact> getOne() {
         try {
-            long size = service.getSize();
-            if (size == 0) {
-                return ResponseEntity.noContent().build();
-            }
-            long id = ThreadLocalRandom.current().nextLong(1, size + 1);
-            Fact f = service.getById(id);
+            List<Long> ids = service.getIds();
+            Random r = new Random();
+            Fact f = service.getById(ids.get(r.nextInt(ids.size())));
             if (f == null) {
                 return ResponseEntity.notFound().build();
             } else {
                 return ResponseEntity.ok().body(f);
             }
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(null);
+            return ResponseEntity.badRequest().build();
         }
     }
 
@@ -59,7 +57,7 @@ public class FactController {
             byte[] img = fact.getImage().getBytes(1, (int) fact.getImage().length());
             return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(img);
         } catch (SQLException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
 
