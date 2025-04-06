@@ -1,1 +1,6 @@
-<p>home works!</p>
+@if (ready()) {
+  <app-fact [fact]="fact()"></app-fact>
+}
+@else {
+  <p>no fact</p>
+}
