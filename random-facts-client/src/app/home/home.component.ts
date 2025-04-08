@@ -3,10 +3,11 @@ import { FactsService } from '../services/facts.service';
 import { catchError } from 'rxjs';
 import { FactComponent } from "../components/fact/fact.component";
 import { Fact } from '../model/fact.type';
+import { LoadingComponent } from '../components/loading/loading.component';
 
 @Component({
   selector: 'app-home',
-  imports: [FactComponent],
+  imports: [FactComponent, LoadingComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
