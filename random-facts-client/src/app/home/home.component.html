@@ -3,6 +3,9 @@
     <app-fact [fact]="fact()"></app-fact>
   </div>
 }
+@else if (!noError()) {
+    <app-error></app-error>
+}
 @else {
   <app-loading></app-loading>
 }
