@@ -25,11 +25,13 @@ public class DatabaseSeeder implements CommandLineRunner {
         long length = service.getAll().spliterator().getExactSizeIfKnown();
         if (length == 0 || length == -1) {
             createFact("flow_poster.jpg",
-                    "Thanks to the popularity of the film \"Flow\", in Brazil, there has been an increase in the adoptions of black cats");
+                    "Thanks to the popularity of the film \"Flow\", in Brazil, there has been an increase in the adoptions of black cats.");
             createFact("blue_whale.jpg",
                     "The blue whale is the largest animal that has ever live on Earth. The second one is the argentinosaurus.");
             createFact("mount_fuji.jpg",
                     "During World War II, the USA considered painting the snow-covered Mount Fuji black as a psychological attack on Japan.");
+            createFact("dire_wolf.jpg",
+                    "In April 2025, thanks to cloning and gene editing, Colossal Biosciences was able to bring back the Dire Wolf, which went extinct 10,000 years ago.");
         }
     }
 
