@@ -1,1 +1,8 @@
-<img [src]="img() + fact().id" alt="">
+<div class="card card-lg w-200 bg-base-200 shadow-md">
+  <figure>
+    <img class="h-100 w-150 object-contain mt-8" [src]="img() + fact().id">
+  </figure>
+  <div class="card-body mr-8 ml-8">
+    <p class="text-center">{{fact().description}}</p>
+  </div>
+</div>

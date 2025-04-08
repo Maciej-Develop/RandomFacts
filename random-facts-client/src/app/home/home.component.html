@@ -1,5 +1,7 @@
 @if (ready()) {
-  <app-fact [fact]="fact()"></app-fact>
+  <div class="grid place-content-center mt-8">
+    <app-fact [fact]="fact()"></app-fact>
+  </div>
 }
 @else {
   <p>no fact</p>
